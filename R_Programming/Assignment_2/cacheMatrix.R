@@ -8,9 +8,7 @@ makeCacheMatrix <- function(matrix = matrix()) {
   }
  
   get <- function() matrix
-
   set_inverse <- function(inv) inverse <<- inv
-  
   get_inverse <- function() inverse
   
   list(set = set, get = get,
@@ -31,21 +29,18 @@ cacheSolve <- function(special_matrix, ...) {
 }
 
 
-## Unit tests (with expected output) for Programming Assignment 2
-
+## Unit tests for Programming Assignment 2
 source("cachematrix.R")
 
 amatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
 amatrix$get()     
 
 cacheSolve(amatrix)
-
 amatrix$get_inverse()
-cacheSolve(amatrix)
 
+cacheSolve(amatrix)
 amatrix$set(matrix(c(0,5,99,66), nrow=2, ncol=2))
+
 cacheSolve(amatrix)
-
 amatrix$get()
-
 amatrix$get_inverse()
